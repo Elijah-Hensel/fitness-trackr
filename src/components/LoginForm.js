@@ -13,45 +13,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = () => {
-    const classes = useStyles();
-    const [loggedUser, setLoggedUser] = useState(false);
-    const [username, setUser] = useState();
-    const [password, setPassword] = useState()
-    const loginUser = async () => {
-      setLoggedUser(true);
-      localStorage.setItem("loggedIn", true);
-      try {
-        const response = await fetch(
-          "http://fitnesstrac-kr.herokuapp.com/api/users/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              username,
-              password,
-            }),
-          }
-        );
-        const data = await response.json()
-       localStorage.setItem("token", data.token)
-        return data
-      } catch (err) {
-        throw err;
-      }
-    };
-  
-    const onFormSubmit = (event) => {
-      event.preventDefault();
-      loginUser();
-  
+  const classes = useStyles();
+  const [loggedUser, setLoggedUser] = useState(false);
+  const [username, setUser] = useState();
+  const [password, setPassword] = useState();
+  const loginUser = async () => {
+    setLoggedUser(true);
+    localStorage.setItem("loggedIn", true);
+    try {
+      const response = await fetch(
+        "http://fitnesstrac-kr.herokuapp.com/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
+      const data = await response.json();
+      localStorage.setItem("token", data.token);
+      return data;
+    } catch (err) {
+      throw err;
     }
-  
-    return (
-        <>
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    loginUser();
+  };
+
+  return (
+    <>
       <form
-        style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
         className="register-form"
         noValidate
         autoComplete="on"
@@ -64,7 +67,9 @@ const LoginForm = () => {
           label="Required"
           defaultValue=""
           variant="outlined"
-          onInput={(e) => {setUser(e.target.value)}}
+          onInput={(e) => {
+            setUser(e.target.value);
+          }}
         />
         <h3>Password</h3>
         <TextField
@@ -75,17 +80,16 @@ const LoginForm = () => {
           autoComplete="current-password"
           variant="outlined"
           className="initial-password"
-          onInput={(e) => {setPassword(e.target.value)}}
+          onInput={(e) => {
+            setPassword(e.target.value);
+          }}
         />
-        <Button
-          type="submit"
-          style={{ width: "25%" }}
-        >
+        <Button type="submit" style={{ width: "25%" }}>
           Register
         </Button>
       </form>
-      </>
-    );
+    </>
+  );
 };
 
 export default LoginForm;

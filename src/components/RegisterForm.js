@@ -17,7 +17,7 @@ const RegisterForm = () => {
   const classes = useStyles();
   const [registeredUser, setRegisteredUser] = useState(false);
   const [username, setUser] = useState();
-  const [password, setPassword] = useState()
+  const [password, setPassword] = useState();
   const registerUser = async () => {
     setRegisteredUser(true);
     localStorage.setItem("loggedIn", true);
@@ -35,10 +35,10 @@ const RegisterForm = () => {
           }),
         }
       );
-      const data = await response.json()
-     localStorage.setItem("token", data.token)
-     localStorage.setItem("username", username)
-      return data
+      const data = await response.json();
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("username", username);
+      return data;
     } catch (err) {
       throw err;
     }
@@ -47,55 +47,59 @@ const RegisterForm = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     registerUser();
-
-  }
+  };
 
   return (
-      <>
-    <form
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      className="register-form"
-      noValidate
-      autoComplete="on"
-      onSubmit={onFormSubmit}
-    >
-      <h3>Username</h3>
-      <TextField
-        required
-        id="username-form"
-        label="Required"
-        defaultValue=""
-        variant="outlined"
-        onInput={(e) => {setUser(e.target.value)}}
-      />
-      <h3>Password</h3>
-      <TextField
-        required
-        id="password-form"
-        label="Password"
-        type="password"
-        autoComplete="current-password"
-        variant="outlined"
-        className="initial-password"
-        style={{marginBottom:"10px"}}
-        onInput={(e) => {setPassword(e.target.value)}}
-      />
-      <TextField
-        required
-        id="password-confirm-form"
-        label="Confirm Password"
-        type="password"
-        autoComplete="current-password"
-        variant="outlined"
-        className="confirm-password"
-      />
-      <Button
-        type="submit"
-        style={{ width: "25%" }}
+    <>
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        className="register-form"
+        noValidate
+        autoComplete="on"
+        onSubmit={onFormSubmit}
       >
-        Register
-      </Button>
-    </form>
+        <h3>Username</h3>
+        <TextField
+          required
+          id="username-form"
+          label="Required"
+          defaultValue=""
+          variant="outlined"
+          onInput={(e) => {
+            setUser(e.target.value);
+          }}
+        />
+        <h3>Password</h3>
+        <TextField
+          required
+          id="password-form"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          variant="outlined"
+          className="initial-password"
+          style={{ marginBottom: "10px" }}
+          onInput={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <TextField
+          required
+          id="password-confirm-form"
+          label="Confirm Password"
+          type="password"
+          autoComplete="current-password"
+          variant="outlined"
+          className="confirm-password"
+        />
+        <Button type="submit" style={{ width: "25%" }}>
+          Register
+        </Button>
+      </form>
     </>
   );
 };

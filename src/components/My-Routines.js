@@ -1,13 +1,13 @@
-import { React } from "react"
+import { React } from "react";
 
 const MyRoutines = () => {
-    return (
-        <>
-        <div>
+  return (
+    <>
+      <div>
         <h1>My Routines Page</h1>
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default MyRoutines;

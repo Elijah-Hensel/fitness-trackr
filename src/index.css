@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
 html {
   background-color: black;
@@ -74,8 +74,8 @@ h3 {
 }
 
 .container-class {
-  display:flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .home-main {
@@ -119,11 +119,12 @@ a:hover {
   font-family: "Avenir Next", sans-serif;
   font-weight: 900;
   font-size: 100px;
-  background-color:     rgba(34, 193, 195, 1) 0%,;
-  background-image:  linear-gradient(
+  background-color: rgba(34, 193, 195, 1) 0%;
+  background-image: linear-gradient(
     81deg,
     rgba(34, 193, 195, 1) 0%,
-    rgba(45, 79, 253, 1) 100%);
+    rgba(45, 79, 253, 1) 100%
+  );
   background-size: 100%;
   text-transform: uppercase;
   font-style: italic;
