@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   container: {
     maxHeight: 440,
   },
-});
+}); 
 
 export default function StickyHeadTable() {
   const classes = useStyles();

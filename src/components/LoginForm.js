@@ -33,7 +33,7 @@ const LoginForm = () => {
             password,
           }),
         }
-      );
+      ); 
       const data = await response.json();
       localStorage.setItem("token", data.token);
       return data;
