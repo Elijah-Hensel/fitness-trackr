@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     maxHeight: 440,
   },
 });
- 
+
 const Activities = () => {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);

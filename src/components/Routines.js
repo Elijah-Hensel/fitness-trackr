@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 440,
-  }, 
+  },
 });
 
 const Routines = () => {
